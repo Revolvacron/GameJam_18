@@ -5,11 +5,10 @@ using UnityEngine;
 public class PlayerShipMovementController : MonoBehaviour
 {
     public Rigidbody2D rb;
-    public float maxVelocity;
-    public float maxThrust;
-    public float turnAgility;
-    private float thrustInput;
-    private float turnInput;
+    private Vector2 directionInput;
+
+    public float agility = 0.5f;
+    public float maxSpeed = 10;
 
     // Start is called before the first frame update
     private void Start()
@@ -28,9 +27,9 @@ public class PlayerShipMovementController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Angle(rb.Vector2, directionInput) != 0.0f)
-        {
-            
-        }
+        print(rb.rotation);
+        print(directionInput.rotation);
+//        rb.AddTorque (rb.velocity, directionInput * maxSpeed, agility);
+        
     }
 }
