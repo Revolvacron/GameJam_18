@@ -20,17 +20,17 @@ public class PlayerShipMovementController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        thrustInput = Input.GetAxis("Vertical");
-        turnInput = Input.GetAxis("Horizontal");
+        directionInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+        // thrustInput = Input.GetAxis("Vertical");
+        // turnInput = Input.GetAxis("Horizontal");
     }
 
     void FixedUpdate()
     {
-        rb.AddRelativeForce(Vector2.up * thrustInput, ForceMode2D.Impulse);
-
-        if (rb.angularVelocity < turnAgility)
+        if (Angle(rb.Vector2, directionInput) != 0.0f)
         {
-            rb.AddTorque(turnInput * -5.0f);
+            
         }
     }
 }
