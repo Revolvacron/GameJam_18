@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerShipMovementController : MonoBehaviour
 {
-    public Rigidbody2D rb;
     private Vector2 directionInput;
     private bool speedInput;
 
@@ -17,11 +16,8 @@ public class PlayerShipMovementController : MonoBehaviour
     [Tooltip("The maximum acceleration of the vehicle.")]
     public float maxAcceleration;
 
-    // Start is called before the first frame update
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    // Internal reference to the object's rigid body component.
+    private Rigidbody2D mRigidBody;
 
     // Update is called once per frame
     private void Update()
@@ -35,6 +31,9 @@ public class PlayerShipMovementController : MonoBehaviour
     {
         // Get a rotation based on the desired direction
         float desiredDirection = DetermineDesiredRotation();
+    private void Start() {
+      this.mRigidBody = this.GetComponent<Rigidbody2D>();
+    }
 
         // Check to see if the ship is pointed in the player's desired direction
         if (!Mathf.Approximately(rb.rotation, desiredDirection))
