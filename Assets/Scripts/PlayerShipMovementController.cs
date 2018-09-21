@@ -38,17 +38,7 @@ public class PlayerShipMovementController : MonoBehaviour
             if (Mathf.Abs(deltaRotation) > agility)
             {
                 // Rotate the ship based on its agility
-                // But first check to see which direction we have to go
                 rb.MoveRotation(rb.rotation + Mathf.Sign(deltaRotation) * agility);
-
-                /* if (deltaRotation > 0)
-                {
-                    rb.MoveRotation(rb.rotation + agility);
-                }
-                else
-                {
-                    rb.MoveRotation(rb.rotation - agility);
-                } */
             }
             else
             {
