@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PlayerShipMovementController : MonoBehaviour
 {
-    private Vector2 directionInput;
-    private bool speedInput;
-
     [Tooltip("The instanteous angular velocity of the vehicle.")]
     public float agility;
 
@@ -19,18 +16,12 @@ public class PlayerShipMovementController : MonoBehaviour
     // Internal reference to the object's rigid body component.
     private Rigidbody2D mRigidBody;
 
-    // Update is called once per frame
-    private void Update()
-    {
-        // Get the player's desired direction
-        directionInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        speedInput = Input.GetKey("Booster");
-    }
+    // Internal reference to the desired orientation of the vehicle.
+    private Vector2 mDesiredOrientation;
 
-    void FixedUpdate()
-    {
-        // Get a rotation based on the desired direction
-        float desiredDirection = DetermineDesiredRotation();
+    // Internal reference to the desired state of the vehicle's boost.
+    private bool mBoost;
+
     private void Start() {
       this.mRigidBody = this.GetComponent<Rigidbody2D>();
     }
@@ -40,6 +31,11 @@ public class PlayerShipMovementController : MonoBehaviour
         {
             // Find the delta angle from current direction to desired direction
             float deltaRotation = desiredDirection - rb.rotation;
+    private void Update() {
+      // Gather user inputs.
+      this.mDesiredOrientation = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+      this.mBoost = Input.GetButton("Booster");
+    }
 
             // Check to see if the desired direction is further than the ship can rotate this update
             if (Mathf.Abs(deltaRotation) > agility)
