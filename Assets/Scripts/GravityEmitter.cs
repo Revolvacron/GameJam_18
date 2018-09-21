@@ -7,7 +7,7 @@ public class GravityEmitter : MonoBehaviour {
   public float mass;
 
   [Tooltip("The distance under which an object will not have a force applied to it.")]
-  public float gravitationalWellBoundary = 10;
+  public float gravityWellBoundary = 10;
 
   // Gravitational constant, the value doesn't really matter just might need to be adjusted to make things feel nice
   // with preferred mass values.
@@ -28,7 +28,7 @@ public class GravityEmitter : MonoBehaviour {
       Vector2 direction = (emitter - body.position);
 
       // Perform a gravitational well check, if the object is under the set distance, skip it.
-      if(direction.magnitude < this.gravitationalWellBoundary) {
+      if(direction.magnitude < this.gravityWellBoundary) {
         continue;
       }
 
