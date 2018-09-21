@@ -112,6 +112,52 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &89443558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 89443559}
+  - component: {fileID: 89443560}
+  m_Layer: 0
+  m_Name: 08_ForwardGun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &89443559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89443558}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.09, z: 4.57}
+  m_LocalScale: {x: 0.38590935, y: 0.38590944, z: 0.38590944}
+  m_Children: []
+  m_Father: {fileID: 1673553659}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &89443560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89443558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c1708cba285694186a94aab5a16474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blasterProjectileSpawn: {fileID: 89443559}
+  projectile: {fileID: 4627979078821233785, guid: f1f2fef1d266d5c4796cd79a3d53b3f5, type: 3}
+  fireRate: 1
 --- !u!1 &93465358
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,8 +210,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 88.2
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 500
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -622,9 +668,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 779a6fa7cb7115c4f8008cd3dd3ef56a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
   orbitSpeed: 10
   orbitDirection: {x: 0, y: 0, z: -1}
   rotationSpeed: 20
+>>>>>>> 8577b4182a2a4e6d8d163d9f621af7c39fa14093
 --- !u!1001 &2049791842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -757,7 +806,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2069246954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -344, y: 0, z: 0}
+  m_LocalPosition: {x: -344, y: 3.37, z: 0}
   m_LocalScale: {x: 28.065441, y: 28.065441, z: 28.065441}
   m_Children:
   - {fileID: 1673553659}
@@ -777,6 +826,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.11}
   serializedVersion: 2
-  m_Radius: 25
+  m_Radius: 0.5
