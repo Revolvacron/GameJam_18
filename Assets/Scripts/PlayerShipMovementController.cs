@@ -26,53 +26,46 @@ public class PlayerShipMovementController : MonoBehaviour
       this.mRigidBody = this.GetComponent<Rigidbody2D>();
     }
 
-        // Check to see if the ship is pointed in the player's desired direction
-        if (!Mathf.Approximately(rb.rotation, desiredDirection))
-        {
-            // Find the delta angle from current direction to desired direction
-            float deltaRotation = desiredDirection - rb.rotation;
     private void Update() {
       // Gather user inputs.
       this.mDesiredOrientation = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
       this.mBoost = Input.GetButton("Booster");
     }
 
-            // Check to see if the desired direction is further than the ship can rotate this update
-            if (Mathf.Abs(deltaRotation) > agility)
-            {
-                // Rotate the ship based on its agility
-                rb.MoveRotation(rb.rotation + Mathf.Sign(deltaRotation) * agility);
-            }
-            else
-            {
-                // Rotate the ship to the specified direction
-                rb.MoveRotation(desiredDirection);
-            }
-        }
+    private void FixedUpdate() {
+      // TODO: implement maximum speed limit (speed of light).
+      if(this.mBoost) {
+        this.mRigidBody.AddRelativeForce(Vector2.up * this.maxAcceleration);
+      }
 
-        // Move forward!
-        if (speedInput)
-        {
-            rb.AddRelativeForce(transform.forward * maxAcceleration);
-        }
+      // Update the vehicle's orientation.
+      this.UpdateVehicleOrientation();
     }
 
-    // How far does the ship need to rotate
-    private float DetermineDesiredRotation()
-    {
-        if (directionInput != Vector2.zero)
-        {
-            // Find out how far the ship needs to rotate to match the direction the player wants to go
-            float desiredDirection = Vector2.SignedAngle(Vector2.up, directionInput);
+    /**
+     *  Performs an update of the vehicle's orientation based on the desired orientation of the controller.
+     */
+    private void UpdateVehicleOrientation() {
+      // Exit early if we don't need to rotate.
+      if(this.mDesiredOrientation.Equals(Vector2.zero)) {
+        return;
+      }
 
-            if (desiredDirection < 0)
-            {
-                desiredDirection += 360;
-            }
+      // Get Vector2 of vehicle orientation.
+      float rotation = this.mRigidBody.rotation * Mathf.Deg2Rad;
+      Vector2 orientation = new Vector2(-Mathf.Sin(rotation), Mathf.Cos(rotation));
 
-            return desiredDirection;
-        }
+      // Get angle from orientation towards desination.
+      float delta = Vector2.SignedAngle(orientation, this.mDesiredOrientation);
 
-        return rb.rotation;
+      // Determine how much to rotate by.
+      float step = agility;
+      if(Mathf.Abs(delta) < Mathf.Abs(agility)) {
+        step = Mathf.Abs(delta);
+      }
+      step *= Mathf.Sign(delta);
+
+      // Apply the incremental rotation.
+      this.mRigidBody.rotation += step;
     }
 }
