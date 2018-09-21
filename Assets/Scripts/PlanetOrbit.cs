@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Orbit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float orbitSpeed;
+    public float orbitDirection;
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.Rotate(Vector3.right, Time.deltaTime*5f);
     }
 }
