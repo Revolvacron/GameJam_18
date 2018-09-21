@@ -7,7 +7,7 @@ public class GravityEmitter : MonoBehaviour {
   public float mass;
 
   [Tooltip("The distance under which an object will not have a force applied to it.")]
-  public float gravityWellBoundary = 10;
+  public float gravityWellBoundary = 0;
 
   // Gravitational constant, the value doesn't really matter just might need to be adjusted to make things feel nice
   // with preferred mass values.
