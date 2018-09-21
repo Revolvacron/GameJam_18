@@ -7,6 +7,8 @@ public class Blaster : MonoBehaviour
     public Transform blasterProjectileSpawn;
     public GameObject projectile;
     public float fireRate;
+    //Variable definitions for multiplayer input support
+    public string ShootButton = "Shoot_P1";
 
     private float nextShot;
 
@@ -19,7 +21,7 @@ public class Blaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Shoot") && Time.time > nextShot)
+        if (Input.GetButton(ShootButton) && Time.time > nextShot)
         {
             nextShot = Time.time + fireRate;
 
