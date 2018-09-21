@@ -841,6 +841,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 11535114ae9f56147a7d1de122f6fe00, type: 3}
   m_PrefabInstance: {fileID: 203256487}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1755533408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755533407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f71332152186827409247704f3876b52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 40000
+  gravityWellBoundary: 50
 --- !u!114 &1755533412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -950,6 +964,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4743079642610832, guid: a6773e5d97ab6704d9d375a7d4bb2fc7, type: 3}
   m_PrefabInstance: {fileID: 2049791842}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2049791844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1543621184505990, guid: a6773e5d97ab6704d9d375a7d4bb2fc7, type: 3}
+  m_PrefabInstance: {fileID: 2049791842}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2049791845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049791844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f71332152186827409247704f3876b52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 200000
+  gravityWellBoundary: 75
 --- !u!1 &2069246954
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,10 +1014,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 450eb0a16842c49458955b9e51a6cd2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 2069246956}
-  agility: 5
+  agility: 3
   maxSpeed: 10
-  maxAcceleration: 10
+  maxAcceleration: 100
 --- !u!50 &2069246956
 Rigidbody2D:
   serializedVersion: 4
