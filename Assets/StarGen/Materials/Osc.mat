@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Osc
   m_Shader: {fileID: 4800000, guid: 0cfc19f140e10ee459475b29f156217d, type: 3}
   m_ShaderKeywords: 
@@ -40,5 +41,5 @@ Material:
     - _node_6191: 0
     - _node_6191_copy: 2.35
     m_Colors:
-    - _Color: {r: 0.9117647, g: 0.48861715, b: 0.21453285, a: 1}
+    - _Color: {r: 0.73435766, g: 0.17517298, b: 0.7941176, a: 1}
     - _Tint: {r: 1, g: 0.2352941, b: 0.2352941, a: 1}
