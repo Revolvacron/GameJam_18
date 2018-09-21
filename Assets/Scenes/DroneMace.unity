@@ -771,6 +771,7 @@ MonoBehaviour:
   rb: {fileID: 2069246956}
   agility: 5
   maxSpeed: 10
+  maxAcceleration: 10
 --- !u!50 &2069246956
 Rigidbody2D:
   serializedVersion: 4

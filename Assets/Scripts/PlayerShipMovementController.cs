@@ -23,7 +23,7 @@ public class PlayerShipMovementController : MonoBehaviour
     {
         // Get the player's desired direction
         directionInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        speedInput = Input.GetKey("Booster");
+        speedInput = Input.GetButton("Booster");
     }
 
     void FixedUpdate()
@@ -53,7 +53,7 @@ public class PlayerShipMovementController : MonoBehaviour
         // Move forward!
         if (speedInput)
         {
-            rb.AddRelativeForce(transform.forward * maxAcceleration);
+            rb.AddRelativeForce(Vector2.up * maxAcceleration);
         }
     }
 
