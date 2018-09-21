@@ -6,9 +6,11 @@ public class PlayerShipMovementController : MonoBehaviour
 {
     public Rigidbody2D rb;
     private Vector2 directionInput;
+    private bool speedInput;
 
     public float agility;
     public float maxSpeed;
+    public float maxAcceleration;
 
     // Start is called before the first frame update
     private void Start()
@@ -21,6 +23,7 @@ public class PlayerShipMovementController : MonoBehaviour
     {
         // Get the player's desired direction
         directionInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        speedInput = Input.GetKey("Booster");
     }
 
     void FixedUpdate()
@@ -47,8 +50,11 @@ public class PlayerShipMovementController : MonoBehaviour
             }
         }
 
-        print(rb.rotation);
-        print(desiredDirection);
+        // Move forward!
+        if (speedInput)
+        {
+            rb.AddRelativeForce(transform.forward * maxAcceleration);
+        }
     }
 
     // How far does the ship need to rotate
