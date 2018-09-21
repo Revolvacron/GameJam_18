@@ -8,8 +8,13 @@ public class PlayerShipMovementController : MonoBehaviour
     private Vector2 directionInput;
     private bool speedInput;
 
+    [Tooltip("The instanteous angular velocity of the vehicle.")]
     public float agility;
+
+    [Tooltip("The maximum velocity of the vehicle.")]
     public float maxSpeed;
+
+    [Tooltip("The maximum acceleration of the vehicle.")]
     public float maxAcceleration;
 
     // Start is called before the first frame update
