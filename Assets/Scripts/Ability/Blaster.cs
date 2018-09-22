@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class Blaster : MonoBehaviour
 {
+    public PlayerShipMovementController playerController = null;
     public Transform blasterProjectileSpawn;
     public GameObject projectile;
     public float fireRate;
-    //Variable definitions for multiplayer input support
-    public string ShootButton = "Shoot_P1";
 
     private float nextShot;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Assert(playerController != null, "ERROR: A player controller must be attached.");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton(ShootButton) && Time.time > nextShot)
+        if (playerController.inputDevice != null && playerController.inputDevice.RightTrigger.IsPressed && Time.time > nextShot)
         {
             nextShot = Time.time + fireRate;
 

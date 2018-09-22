@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using InControl;
 
 public class PlayerShipMovementController : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class PlayerShipMovementController : MonoBehaviour
     [Tooltip("Booster Particles")]
     public ParticleSystem boosterTrail;
 
+    public InputDevice inputDevice;
+
     // Internal reference to the object's rigid body component.
     private Rigidbody2D mRigidBody;
 
@@ -25,10 +28,6 @@ public class PlayerShipMovementController : MonoBehaviour
     // Internal reference to the desired state of the vehicle's boost.
     private bool mBoost;
 
-    //Variable definitions for multiplayer input support
-    public string HorizontalAxis = "Horizontal_P1";
-    public string VerticalAxis = "Vertical_P1";
-    public string BoosterButton = "Booster_P1";
 
     private void Start() {
       this.mRigidBody = this.GetComponent<Rigidbody2D>();
@@ -36,8 +35,10 @@ public class PlayerShipMovementController : MonoBehaviour
 
     private void Update() {
       // Gather user inputs.
-      this.mDesiredOrientation = new Vector2(Input.GetAxis(HorizontalAxis), Input.GetAxis(VerticalAxis));
-      this.mBoost = Input.GetButton(BoosterButton);
+      if (inputDevice == null)
+        return;
+      this.mDesiredOrientation = inputDevice.LeftStick.Vector.normalized;
+      this.mBoost = inputDevice.LeftTrigger.IsPressed;
     }
 
     private void FixedUpdate() {
