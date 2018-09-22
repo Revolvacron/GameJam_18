@@ -776,7 +776,7 @@ public class HU_Star : MonoBehaviour
             coronaSpeed = value;
             coronaMateral.SetFloat("_Speed", coronaSpeed);
             var main = coronaParticlesComp.main;
-            main.simulationSpeed = 1.5f * coronaSpeed;
+            main.simulationSpeed = 10f * coronaSpeed;
         }
     }
     
