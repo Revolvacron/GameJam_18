@@ -7,24 +7,32 @@ public class AsteroidMovement : MonoBehaviour
     public GameObject manager;
     public Rigidbody2D rb;
     public int size = 4;
-    // Start is called before the first frame update
+    public float velocity;
+
     void Start()
     {
         Vector2 direction;
-        if(size == 4)
-        {
-            direction = new Vector2(-transform.position.x * Random.Range(.01f, .02f), -transform.position.y * Random.Range(1.5f, 3f));
-        } else
-        {
-            direction = Random.insideUnitCircle * 200;
-        }
+        //if(size == 4)
+        //{
+            direction = new Vector2(-transform.position.x * Random.Range(1.5f, 3f), -transform.position.y * Random.Range(3f, 6f));
+        //}
+        //else
+        //{
+        //    direction = Random.insideUnitCircle * 200;
+        //}
 
-        rb.AddForce(direction);
+        rb.AddForce(direction*5);
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        velocity = rb.velocity.magnitude;
+        if (velocity > 100)
+        {
+            rb.velocity *= .99f;
+        }
         if (this.transform.position.magnitude > 2000 || this.transform.position.magnitude < -2000)
         {
             Destroy(this.gameObject);
@@ -38,12 +46,15 @@ public class AsteroidMovement : MonoBehaviour
         {
             size--;
             this.transform.localScale *= .65f;
-            rb.velocity = Random.insideUnitCircle * 200;
+            // rb.velocity += Random.insideUnitCircle * 50;
+            Vector3 newMove = new Vector3(rb.velocity.y, rb.velocity.x);
+            rb.velocity = newMove;
+
 
             GameObject clone;
-            clone = Instantiate(this.gameObject, this.transform.position + (Random.insideUnitSphere * 200), Random.rotation);
+            clone = Instantiate(this.gameObject, this.transform.position + (Random.insideUnitSphere * 60 * (1+size)), Random.rotation);
             clone.transform.localScale = this.transform.localScale;
-            clone.GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle * 200;
+            clone.GetComponent<Rigidbody2D>().velocity = -rb.velocity;
             clone.GetComponent<AsteroidMovement>().size = size;
         }
         else
