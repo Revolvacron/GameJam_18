@@ -160,10 +160,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c1708cba285694186a94aab5a16474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 2069246955}
   blasterProjectileSpawn: {fileID: 89443559}
   projectile: {fileID: 4627979078821233785, guid: f1f2fef1d266d5c4796cd79a3d53b3f5, type: 3}
   fireRate: 1
-  ShootButton: Shoot_P1
 --- !u!1 &93465358
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,10 +512,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c1708cba285694186a94aab5a16474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 1343899999}
   blasterProjectileSpawn: {fileID: 436090017}
   projectile: {fileID: 4627979078821233785, guid: f1f2fef1d266d5c4796cd79a3d53b3f5, type: 3}
   fireRate: 1
-  ShootButton: Shoot_P2
 --- !u!1 &463735992 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 11535114ae9f56147a7d1de122f6fe00, type: 3}
@@ -5603,9 +5603,6 @@ MonoBehaviour:
   maxSpeed: 10
   maxAcceleration: 100
   boosterTrail: {fileID: 1797432787}
-  HorizontalAxis: Horizontal_P2
-  VerticalAxis: Vertical_P2
-  BoosterButton: Booster_P2
 --- !u!50 &1343900000
 Rigidbody2D:
   serializedVersion: 4
@@ -10843,9 +10840,6 @@ MonoBehaviour:
   maxSpeed: 10
   maxAcceleration: 100
   boosterTrail: {fileID: 798596777}
-  HorizontalAxis: Horizontal_P1
-  VerticalAxis: Vertical_P1
-  BoosterButton: Booster_P1
 --- !u!50 &2069246956
 Rigidbody2D:
   serializedVersion: 4
@@ -10898,3 +10892,79 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.15}
   serializedVersion: 2
   m_Radius: 0.42
+--- !u!1 &2099683005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2099683008}
+  - component: {fileID: 2099683007}
+  - component: {fileID: 2099683006}
+  m_Layer: 0
+  m_Name: InControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2099683006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099683005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecdc262030ced6a4b8c2268b97ddd242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players:
+  - {fileID: 2069246955}
+  - {fileID: 1343899999}
+--- !u!114 &2099683007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099683005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b5e8de77c5b4597ae7fbfb49a95e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logDebugInfo: 1
+  invertYAxis: 0
+  useFixedUpdate: 0
+  dontDestroyOnLoad: 1
+  suspendInBackground: 0
+  enableICade: 0
+  enableXInput: 0
+  xInputOverrideUpdateRate: 0
+  xInputUpdateRate: 0
+  xInputOverrideBufferSize: 0
+  xInputBufferSize: 0
+  enableNativeInput: 1
+  nativeInputEnableXInput: 1
+  nativeInputPreventSleep: 0
+  nativeInputOverrideUpdateRate: 0
+  nativeInputUpdateRate: 0
+  customProfiles: []
+--- !u!4 &2099683008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099683005}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
