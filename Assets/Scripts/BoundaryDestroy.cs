@@ -10,7 +10,7 @@ public class BoundaryDestroy : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!collision.gameObject.GetComponent<AsteroidMovement>())
+        if (!other.gameObject.GetComponent<AsteroidMovement>())
         {
             Debug.Log("Collison occurs");
             Destroy(other.gameObject);
