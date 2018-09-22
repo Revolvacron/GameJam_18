@@ -13,6 +13,9 @@ public class PlayerShipMovementController : MonoBehaviour
     [Tooltip("The maximum acceleration of the vehicle.")]
     public float maxAcceleration;
 
+    [Tooltip("Booster Particles")]
+    public ParticleSystem boosterTrail;
+
     // Internal reference to the object's rigid body component.
     private Rigidbody2D mRigidBody;
 
@@ -41,6 +44,10 @@ public class PlayerShipMovementController : MonoBehaviour
       // TODO: implement maximum speed limit (speed of light).
       if(this.mBoost) {
         this.mRigidBody.AddRelativeForce(Vector2.up * this.maxAcceleration);
+        boosterTrail.Play();
+      }
+      else {
+        boosterTrail.Stop();
       }
 
       // Update the vehicle's orientation.
