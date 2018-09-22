@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AsteroidMovement : MonoBehaviour
 {
-    public GameObject manager;
     public Rigidbody2D rb;
     public int size = 4;
     public float velocity;
@@ -12,15 +11,7 @@ public class AsteroidMovement : MonoBehaviour
     void Start()
     {
         Vector2 direction;
-        //if(size == 4)
-        //{
-            direction = new Vector2(-transform.position.x * Random.Range(1.5f, 3f), -transform.position.y * Random.Range(3f, 6f));
-        //}
-        //else
-        //{
-        //    direction = Random.insideUnitCircle * 200;
-        //}
-
+        direction = new Vector2(-transform.position.x * Random.Range(1.5f, 3f), -transform.position.y * Random.Range(3f, 6f));
         rb.AddForce(direction*5);
     }
 
@@ -33,6 +24,7 @@ public class AsteroidMovement : MonoBehaviour
         {
             rb.velocity *= .99f;
         }
+
         if (this.transform.position.magnitude > 2000 || this.transform.position.magnitude < -2000)
         {
             Destroy(this.gameObject);
@@ -42,24 +34,28 @@ public class AsteroidMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (size > 0)
+        if (!collision.gameObject.GetComponent<AsteroidMovement>())
         {
-            size--;
-            this.transform.localScale *= .65f;
-            // rb.velocity += Random.insideUnitCircle * 50;
-            Vector3 newMove = new Vector3(rb.velocity.y, rb.velocity.x);
-            rb.velocity = newMove;
+        
+            if (size > 0)
+            {
+                size--;
+                this.transform.localScale *= .65f;
+                // rb.velocity += Random.insideUnitCircle * 50;
+                Vector3 newMove = new Vector3(rb.velocity.y, rb.velocity.x);
+                rb.velocity = newMove;
 
 
-            GameObject clone;
-            clone = Instantiate(this.gameObject, this.transform.position + (Random.insideUnitSphere * 60 * (1+size)), Random.rotation);
-            clone.transform.localScale = this.transform.localScale;
-            clone.GetComponent<Rigidbody2D>().velocity = -rb.velocity;
-            clone.GetComponent<AsteroidMovement>().size = size;
-        }
-        else
-        {
-            Destroy(this.gameObject);
+                GameObject clone;
+                clone = Instantiate(this.gameObject, this.transform.position + (Random.insideUnitSphere * 60 * (1 + size)), Random.rotation);
+                clone.transform.localScale = this.transform.localScale;
+                clone.GetComponent<Rigidbody2D>().velocity = -rb.velocity;
+                clone.GetComponent<AsteroidMovement>().size = size;
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }
