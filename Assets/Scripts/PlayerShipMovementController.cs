@@ -80,4 +80,9 @@ public class PlayerShipMovementController : MonoBehaviour
       // Apply the incremental rotation.
       this.mRigidBody.rotation += step;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(this.gameObject);
+    }
 }

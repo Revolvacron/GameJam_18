@@ -12,4 +12,9 @@ public class BlasterProjectile : MonoBehaviour
     {
         rb.velocity = transform.up * speed;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(this.gameObject);
+    }
 }
