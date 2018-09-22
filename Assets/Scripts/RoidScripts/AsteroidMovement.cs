@@ -7,6 +7,7 @@ public class AsteroidMovement : MonoBehaviour
     public Rigidbody2D rb;
     public int size = 4;
     public float velocity;
+    public int life = 3;
 
     void Start()
     {
@@ -34,11 +35,12 @@ public class AsteroidMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collision.gameObject.GetComponent<AsteroidMovement>())
+        if (!collision.gameObject.GetComponent<AsteroidMovement>() || life == 1)
         {
         
             if (size > 0)
             {
+                life = 3;
                 size--;
                 this.transform.localScale *= .65f;
                 // rb.velocity += Random.insideUnitCircle * 50;
@@ -56,6 +58,9 @@ public class AsteroidMovement : MonoBehaviour
             {
                 Destroy(this.gameObject);
             }
+        } else
+        {
+            life--;
         }
     }
 }
