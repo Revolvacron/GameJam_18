@@ -20561,6 +20561,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid_Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 2355598742319716092, guid: 064034c719279484dafc68d1debf4a1e, type: 3}
+      propertyPath: timer
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 064034c719279484dafc68d1debf4a1e, type: 3}
 --- !u!1 &1716710437
