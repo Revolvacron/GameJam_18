@@ -6,11 +6,13 @@ public class BlasterProjectile : MonoBehaviour
 {
     public float speed;
     public Rigidbody2D rb;
+    public float projectileVelocityMultiplier;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb.velocity = transform.up * speed;
+        projectileVelocityMultiplier = 3f;
+        rb.velocity = transform.up * speed * projectileVelocityMultiplier;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
