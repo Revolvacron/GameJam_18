@@ -35,9 +35,10 @@ public class AsteroidMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (!collision.gameObject.GetComponent<AsteroidMovement>() || life == 1)
         {
-        
+
             if (size > 0)
             {
                 life = 3;
@@ -58,7 +59,8 @@ public class AsteroidMovement : MonoBehaviour
             {
                 Destroy(this.gameObject);
             }
-        } else
+        }
+        else
         {
             life--;
         }
