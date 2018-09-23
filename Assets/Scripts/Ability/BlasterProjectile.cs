@@ -11,7 +11,6 @@ public class BlasterProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        projectileVelocityMultiplier = 3f;
         rb.velocity = transform.up * speed * projectileVelocityMultiplier;
     }
 

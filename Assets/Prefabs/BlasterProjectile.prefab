@@ -131,3 +131,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   rb: {fileID: 4627979078821233791}
+  projectileVelocityMultiplier: 3
