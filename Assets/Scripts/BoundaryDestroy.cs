@@ -6,7 +6,7 @@ public class BoundaryDestroy : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("asset in game area");
+        //Debug.Log("asset in game area");
     }
     private void OnTriggerExit2D(Collider2D other)
     {

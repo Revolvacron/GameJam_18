@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using InControl;
+using UnityEngine.SceneManagement;
 
 public class PlayerShipMovementController : MonoBehaviour
 {
@@ -28,17 +29,16 @@ public class PlayerShipMovementController : MonoBehaviour
     // Internal reference to the desired state of the vehicle's boost.
     private bool mBoost;
 
-
     private void Start() {
       this.mRigidBody = this.GetComponent<Rigidbody2D>();
     }
 
     private void Update() {
-      // Gather user inputs.
-      if (inputDevice == null)
+        // Gather user inputs.
+        if (inputDevice == null)
         return;
-      this.mDesiredOrientation = inputDevice.LeftStick.Vector.normalized;
-      this.mBoost = inputDevice.LeftTrigger.IsPressed;
+        this.mDesiredOrientation = inputDevice.LeftStick.Vector.normalized;
+        this.mBoost = inputDevice.LeftTrigger.IsPressed;
     }
 
     private void FixedUpdate() {
@@ -82,10 +82,11 @@ public class PlayerShipMovementController : MonoBehaviour
       this.mRigidBody.rotation += step;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.GetComponent<PlayerShipMovementController>()) {
             Destroy(this.gameObject);
         }
     }
+
 }
