@@ -15,6 +15,7 @@ public class AsteroidMovement : MonoBehaviour
 
     void Start()
     {
+
         // On start, provide this asteroid with an initial velocity that points toward the sun
         // plus some noise to not necessarily make it hit, of course
         Vector2 direction;
