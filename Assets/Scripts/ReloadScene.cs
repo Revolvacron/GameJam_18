@@ -20,8 +20,8 @@ void Start()
         InputDevice activeController = InputManager.ActiveDevice;
         Debug.Log(activePlayers.Count);
         Scene thisScene = SceneManager.GetActiveScene();
-        activePlayers.RemoveAll(x => x == null && activeController.CommandIsPressed == true);
-        if (activePlayers.Count == 0)
+        activePlayers.RemoveAll(x => x == null);
+        if (activePlayers.Count == 0 && activeController.CommandIsPressed == true)
         {
             SceneManager.LoadScene(thisScene.name);
         }
