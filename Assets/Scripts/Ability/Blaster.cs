@@ -23,7 +23,6 @@ public class Blaster : MonoBehaviour
         if (playerController.inputDevice != null && playerController.inputDevice.RightTrigger.IsPressed && Time.time > nextShot)
         {
             nextShot = Time.time + fireRate;
-
             Instantiate(projectile, blasterProjectileSpawn.position, blasterProjectileSpawn.rotation);
         }
     }
