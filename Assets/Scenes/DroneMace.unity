@@ -21295,5 +21295,9 @@ PrefabInstance:
       propertyPath: shooter
       value: 
       objectReference: {fileID: 2069246957}
+    - target: {fileID: 3093225729232591193, guid: 067477d3db8157340811016d313a5058, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 067477d3db8157340811016d313a5058, type: 3}
